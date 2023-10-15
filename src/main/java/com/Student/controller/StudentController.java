@@ -65,4 +65,9 @@ public class StudentController {
         System.out.println("error!!!");
   }
 
+  @GetMapping("/hallo")
+  public String hallo(){
+        return "this is home page";
+  }
+
 }

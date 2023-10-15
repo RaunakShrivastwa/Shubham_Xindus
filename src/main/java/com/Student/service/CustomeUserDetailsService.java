@@ -22,7 +22,7 @@ public class CustomeUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws ResourceNotFoundException {
         Student student = this.studentRespositery.findByEmail(email);
-
+        System.out.println("student is:- "+student);
         if(student==null){
             throw new ResourceNotFoundException("not there");
         }

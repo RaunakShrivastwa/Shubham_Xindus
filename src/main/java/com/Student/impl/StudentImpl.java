@@ -20,7 +20,7 @@ public class StudentImpl implements StudentService {
 
     @Override
     public Student saveStudent(Student student) {
-        student.setRole("ROLE_NORMAL");
+//        student.setRole("ROLE_NORMAL");
         student.setPassword(passwordEncryption(student.getPassword()));
         String s = UUID.randomUUID().toString();
         student.setId(s);
