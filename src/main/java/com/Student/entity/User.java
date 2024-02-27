@@ -5,22 +5,29 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "App_now")
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+
+@Entity
+@Table(name = "Users")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Student {
+public class User {
     @Id
     private String id;
     private String name;
-    private String section;
-//    @Column(unique = true,nullable = false)
+
+   @Column(unique = true,nullable = false)
     private String email;
+
     private String password;
+    
     private String role;
 
 }

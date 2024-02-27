@@ -8,18 +8,17 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class StudentUserDetailsService implements UserDetails {
-  private Student student;
+public class DetailsServiceInfo implements UserDetails {
+  private User student;
 
-  public StudentUserDetailsService(Student student){
+  public DetailsServiceInfo(User student){
       this.student=student;
   }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         HashSet<SimpleGrantedAuthority> set=new HashSet<>();
-        set.add(new SimpleGrantedAuthority(this
-                .student.getRole()));
+        set.add(new SimpleGrantedAuthority(this.student.getRole()));
         return set;
     }
 
@@ -29,7 +28,6 @@ public class StudentUserDetailsService implements UserDetails {
           return this.student.getPassword();
       }catch (Exception e){
           throw new ResourceNotFoundException("eroor");
-//          return "Login Credential invalide";
       }
 
     }
